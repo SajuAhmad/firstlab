@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Registration Form</title>
+    <div th:replace="fragments/head :: head"></div>
+</head>
+<body>
+<div class="login-form">
+    <form th:object="${user}" th:action="@{/save_user}" method="post">
+        <h2 class="text-center">User Registration</h2>
+        <div class="form-group">
+            <input type="text" class="form-control" th:field="*{username}" placeholder="Username" required="required">
+        </div>
+        <div class="form-group">
+            <input type="password" th:field="*{password}" class="form-control" placeholder="Password" required="required">
+        </div>
+        <div class="form-group">
+            <select class="form-control" th:field="*{role}">
+                <option th:each="role: ${roles}" th:value="${role.id}" th:text="${role.role}"></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">Register</button>
+        </div>
+    </form>
+    <p class="text-center"><a th:href="@{/login}">Login</a></p>
+</div>
+</body>
+</html>
