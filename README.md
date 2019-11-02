@@ -3,7 +3,7 @@ Step-1: Go to the project root folder using cd
 
 Step-2: Clean and build the project with maven
 ---
-sudo mvn clean && sudo mvn install
+sudo mvn install
 
 Step-3: Run docker compose
 ---
